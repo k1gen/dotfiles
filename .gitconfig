@@ -1,0 +1,15 @@
+[user]
+	email = kigen745@gmail.com
+	name = Oleksandr K.
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[diff]
+	tool = colordiff
+[push]
+	default = simple
+[core]
+	editor = nano
