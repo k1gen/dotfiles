@@ -75,6 +75,7 @@
         "format-wifi": "直 {signalStrength}%",
         "format-ethernet": "",
         "tooltip": false,
+        "on-click": "$HOME/.config/rofi/wireless/iwdrofimenu.sh",
         "format-disconnected": ""
     },
     "pulseaudio": {
