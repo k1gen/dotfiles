@@ -6,9 +6,9 @@
     "margin-bottom": 0,
     "margin-right": 10,
     "spacing": 5,
-    "modules-left": ["custom/launcher", "temperature", "memory", "wlr/workspaces", "custom/weather"],
-    // "modules-center": ["hyprland/window"],
-    "modules-right": ["custom/spotify", "tray", "hyprland/language", "pulseaudio", "network", "bluetooth", "clock"],
+    "modules-left": ["temperature", "memory", "wlr/workspaces", "custom/weather"],
+    "modules-center": ["custom/spotify"],
+    "modules-right": ["tray", "hyprland/language", "backlight", "pulseaudio", "network", "battery", "clock"],
     "wlr/workspaces": {
       "format": "{icon}",
       "on-click": "activate",
@@ -34,11 +34,15 @@
         "format-en": "us",
         "format-ru": "ru",
         "format-uk": "ua",
-    //    "keyboard-name": "logitech-hid-compliant-keyboard"
     },
     "tray": {
         // "icon-size": 21,
         "spacing": 10
+    },
+    "backlight": {
+        // "format": "{icon} {percent}%",
+        "format": "{icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
     },
     "clock": {
         "format": "<span color='#bf616a'> </span>{:%H:%M}",
@@ -67,9 +71,10 @@
         "tooltip": false
     },
     "network": {
+        "format": "直",
         "format-wifi": "直 {signalStrength}%",
         "format-ethernet": "",
-        "tooltip-format": "{gwaddr} via {ifname}",
+        "tooltip": false,
         "format-disconnected": ""
     },
     "pulseaudio": {
@@ -89,7 +94,26 @@
     },
 
     "bluetooth": {
-        "format": " {status}"
+        "format": " {status}",
+        "format-disabled": ""
+    },
+    "battery": {
+      "bat": "BAT0",
+      "adapter": "ADP0",
+      "interval": 60,
+      "states": {
+          "warning": 30,
+          "critical": 15
+      },
+      "max-length": 20,
+      "format": "{icon} {capacity}%",
+      "format-warning": "{icon} {capacity}%",
+      "format-critical": "{icon} {capacity}%",
+      "format-charging": "<span font-family='Font Awesome 6 Free'></span> {capacity}%",
+      "format-plugged": "  {capacity}%",
+      "format-alt": "{icon} {time}",
+      "format-full": "  {capacity}%",
+      "format-icons": [" ", " ", " ", " ", " "],
     },
     "custom/weather": {
         "exec": "python3 ~/.config/waybar/scripts/weather.py",
@@ -102,12 +126,7 @@
         "format": "{}  ",
         "return-type": "json",
         "on-click": "playerctl --player=spotify play-pause",
-        "on-scroll-up": "playerctl --player=spotify next",
-        "on-scroll-down": "playerctl --player=spotify previous"
-    },
-    "custom/launcher": {
-        "format": " <span color='#6a92d7'> </span>",
-        "on-click": "rofi -show combi",
-        "tooltip": false
+        "on-click-right": "playerctl --player=spotify next",
+        "on-click-middle": "playerctl --player=spotify previous"
     }
 }

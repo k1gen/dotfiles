@@ -14,16 +14,21 @@ if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
 fi
 
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
+
 alias ls='ls --color=auto'
 alias l='ls -lh --color=auto'
 alias lh='ls -lah --color=auto'
+
 alias grep='rg'
 alias diff='colordiff'
+
 alias hx='helix'
-alias nv='nvim'
+alias nano='helix'
+
+alias webcam='mpv --demuxer-lavf-format=video4linux2 --demuxer-lavf-o-set=input_format=mjpeg --profile=low-latency --untimed av://v4l2:/dev/video0'
 
 HISTFILE=~/.histfile
-HISTSIZE=1000
+HISTSIZE=10000
 SAVEHIST=1000
 setopt extendedglob
 unsetopt beep
